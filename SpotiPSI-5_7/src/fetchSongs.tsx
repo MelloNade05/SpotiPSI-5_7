@@ -12,7 +12,7 @@ const ExampleFetch = () => {
         setIsLoading(true);
         try {
             // גישה לשרת
-            const response = await fetch("https://exampleUrl.com/songs");
+            const response = await fetch("https://127.0.0.1:5001/api/songs");
             const data = await response.json();
 
             // הוספת שירים לסטייט לאחר שהתקבלו מהשרת
