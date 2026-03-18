@@ -16,13 +16,14 @@ const Song: React.FC<SongProps> = ({ songName, songArtist }) => {
 
     return (
         <div className={classes.songContainer}>
-            <h1>כל השירים</h1>
+
             <div className={classes.songInfoLine}>
-                <p className={classes.text}>{songName}</p>
-                <p className={classes.text}>{songArtist}</p>
                 <IconButton className={classes.iconButton} aria-label="Play Arrow">
                     <PlayArrow />
                 </IconButton>
+                <p className={classes.text}>{songName}</p>
+                <p className={classes.text}> - </p>
+                <p className={classes.text}>{songArtist}</p>
             </div>
 
             <div className={classes.songFuncs}>
