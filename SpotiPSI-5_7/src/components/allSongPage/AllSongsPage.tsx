@@ -1,14 +1,32 @@
-import Button from '@mui/material/Button';
+import React from 'react';
+import Song from '../song/Song';
+import useStyles from './allSongsPage';
 
-const AllSongsPage = (props:string[]) =>{
-    return(
-        <div className='page-container'>
-            <div itemID='songs-list'>
-                
-            </div>
-        </div>
-        
-    )
+interface SongInfo {
+    name: string;
+    artist: string;
+}
+interface AllSongsPageProps {
+    songs: SongInfo[];
+
 }
 
-export default AllSongsPage
+const AllSongsPage: React.FC<AllSongsPageProps> = ({ songs }) => {
+    const { classes } = useStyles();
+    return (
+        <div className={classes.pageContainer}>
+            <h1 className={classes.header}> כל השירים</h1>
+            <div id="songs-list">
+                {songs.map((song, index) => (
+                    <Song
+                        key={index}
+                        songName={song.name}
+                        songArtist={song.artist}
+                    />
+                ))}
+            </div>
+        </div>
+    );
+};
+
+export default AllSongsPage;
