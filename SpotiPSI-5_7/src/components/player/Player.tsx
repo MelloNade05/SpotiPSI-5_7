@@ -1,3 +1,4 @@
+import { Box, Typography } from '@mui/material';
 import useStyles from './playerStyles.tsx'
 
 function Player() {
@@ -5,10 +6,9 @@ function Player() {
 
   return (
     <>
-      <div className={classes.player}>
-        <p className={classes.title}>נגן שירים</p>
-        
-      </div>
+      <Box className={classes.player}>
+        <Typography variant="body1" className={classes.title} gutterBottom> נגן שירים </Typography>
+      </Box>
     </>
   )
 }

@@ -4,29 +4,27 @@ import IconButton from '@mui/material/IconButton';
 import PlayArrow from '@mui/icons-material/PlayArrow';
 import Favourite from '@mui/icons-material/Favorite';
 import Add from '@mui/icons-material/Add';
-import useStyles from './SongStyles';
+import useStyles from './SongItemStyles';
+import type { Song } from '../../types';
+import { Typography , Divider, backdropClasses, Box} from '@mui/material';
 
-export interface SongProps {
-    songName: string;
-    songArtist: string;
-}
 
-const Song: React.FC<SongProps> = ({ songName, songArtist }) => {
+const SongItem: React.FC<Song> = ({name, artist }) => {
     const { classes } = useStyles();
 
     return (
-        <div className={classes.songContainer}>
+        <Box className={classes.songContainer}>
 
-            <div className={classes.songInfoLine}>
+            <Box className={classes.songInfoLine}>
                 <IconButton className={classes.iconButton} aria-label="Play Arrow">
                     <PlayArrow />
                 </IconButton>
-                <p className={classes.text}>{songName}</p>
-                <p className={classes.text}> - </p>
-                <p className={classes.text}>{songArtist}</p>
-            </div>
+                <Typography variant="body1" className={classes.text} gutterBottom> {name} </Typography>
+                <Typography variant="body1" className={classes.text} gutterBottom> - </Typography>
+                <Typography variant="body1" className={classes.text} gutterBottom> {artist} </Typography>
+            </Box>
 
-            <div className={classes.songFuncs}>
+            <Box className={classes.songFuncs}>
                 <Stack direction="row" spacing={1}>
                     <IconButton className={classes.iconButton} aria-label="Favourite">
                         <Favourite />
@@ -36,9 +34,9 @@ const Song: React.FC<SongProps> = ({ songName, songArtist }) => {
                         <Add />
                     </IconButton>
                 </Stack>
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 
-export default Song;
+export default SongItem;

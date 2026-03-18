@@ -1,24 +1,20 @@
+import { Box } from '@mui/material'
 import './App.css'
-import AllSongsPage from './components/allSongPage/AllSongsPage'
+import AllSongsPage from './components/allSongPage/AllSongsPage.tsx'
 import Header from './components/header/Header'
 import Player from './components/player/player'
 import Sidebar from './components/sidebar/Sidebar'
-
-const songs = [
-  { name: "Song 1", artist: "Artist A" },
-  { name: "Song 2", artist: "Artist B" },
-  { name: "Song 3", artist: "Artist C" },
-];
+import FetchSongs from './fetchSongs.tsx'
 
 function App() {
-
+  const songsList = FetchSongs()
   return (
     <>
     <Header />
-      <div id="main-section">
+      <Box id="main-section">
         <Sidebar />
-        <AllSongsPage songs={songs}/>
-      </div>
+        <AllSongsPage songs={songsList}/>
+      </Box>
       <Player />
     </>
   )

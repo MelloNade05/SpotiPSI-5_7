@@ -1,8 +1,10 @@
 import React from 'react';
-import Song from '../song/Song';
-import useStyles from './allSongsPage';
+import SongItem from '../song/SongItem';
+import useStyles from './allSongsPageStyles';
+import { Box, Typography } from '@mui/material';
 
 interface SongInfo {
+    id:number
     name: string;
     artist: string;
 }
@@ -14,18 +16,21 @@ interface AllSongsPageProps {
 const AllSongsPage: React.FC<AllSongsPageProps> = ({ songs }) => {
     const { classes } = useStyles();
     return (
-        <div className={classes.pageContainer}>
-            <h1 className={classes.header}> כל השירים</h1>
-            <div id="songs-list">
+        <Box className={classes.pageContainer}>
+            <Typography variant="h4" className={classes.header} gutterBottom 
+            sx={{fontWeight:'Bold'}}> כל השירים 
+            </Typography>
+            <Box id="songs-list">
                 {songs.map((song, index) => (
-                    <Song
+                    <SongItem
                         key={index}
-                        songName={song.name}
-                        songArtist={song.artist}
-                    />
+                        name={song.name}
+                        artist={song.artist} 
+                        id={song.id}             
+                        />
                 ))}
-            </div>
-        </div>
+            </Box>
+        </Box>
     );
 };
 

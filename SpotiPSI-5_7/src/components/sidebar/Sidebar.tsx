@@ -1,19 +1,20 @@
+import { Box, List, ListItem } from '@mui/material';
 import SidebarBtn from '../sidebar-btn/SidebarBtn.tsx';
 import useStyles from './sidebarStyles.tsx'
 
 
 function Sidebar() {
-    const { classes } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>
-      <div className={classes.sidebar}>
-        <ul>
-            <li><SidebarBtn btnTitle='כל השירים'/></li>
-            <li><SidebarBtn btnTitle='פלייליסטים'/></li>
-            <li><SidebarBtn btnTitle='מועדפים'/></li>
-        </ul>
-      </div>
+      <Box className={classes.sidebar}>
+        <List>
+          <ListItem><SidebarBtn btnTitle='כל השירים' /></ListItem>
+          <ListItem><SidebarBtn btnTitle='פלייליסטים' /></ListItem>
+          <ListItem><SidebarBtn btnTitle='מועדפים' /></ListItem>
+        </List>
+      </Box>
     </>
   )
 }
