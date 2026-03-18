@@ -3,20 +3,22 @@ import { makeStyles } from 'tss-react/mui'
 const useStyles = makeStyles()(() => ({
     btn: {
         width: '100%',
-        height: '50px',
+        height: '60px',
         display: 'flex',
         flexDirection: 'row',
         alignItems: 'center',
+        justifyContent: 'right',
         '&:hover': {
             backgroundColor: '#2C2032'
         }
     },
     title: {
         color: 'white',
-        marginRight: '2%'
+        marginRight: '25%'
     },
     icon: {
-        color: 'darkgray'
+        color: 'darkgray',
+        marginRight: '10%'
     }
 }));
 
