@@ -10,9 +10,12 @@ const useStyles = makeStyles()(() => ({
     width:'97%',
     padding: '12px',
     margin:'5px',
-    border: '4px solid #1b1b1b',
+    border: '3px solid #1b1b1b',
     borderRadius:'16px',
     backgroundColor: '#0f0f0f',
+    '&:hover': {
+      backgroundColor: '#1b1b1b'
+    }
   },
   songInfoLine: {
   display: 'flex',
@@ -29,8 +32,17 @@ const useStyles = makeStyles()(() => ({
     padding:'5px',
     margin: 0,
   },
-  iconButton: {
-    color: 'purple',
+  playicon: {
+    color: '#825193',
+  },
+  addIcon: {
+    color: 'darkgray'
+  },
+  favoriteIcon: {
+    color: "darkgray",
+    "&.Mui-checked": {
+      color: "#825193"
+    },
   },
   songFuncs: {
     display: 'flex',

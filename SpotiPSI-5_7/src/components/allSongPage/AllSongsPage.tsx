@@ -8,6 +8,7 @@ interface SongInfo {
     name: string;
     artist: string;
 }
+
 interface AllSongsPageProps {
     songs: SongInfo[];
 
