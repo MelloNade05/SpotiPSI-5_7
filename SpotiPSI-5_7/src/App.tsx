@@ -1,7 +1,7 @@
 import './App.css';
 import AllSongsPage from './components/allSongPage/AllSongsPage.tsx';
 import Header from './components/header/Header';
-import Player from './components/player/Player';
+import Player from './components/player/player';
 import Sidebar from './components/sidebar/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material'

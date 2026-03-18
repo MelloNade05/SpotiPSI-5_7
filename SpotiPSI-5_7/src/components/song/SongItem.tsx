@@ -14,8 +14,8 @@ const SongItem: React.FC<Song> = ({ name, artist }) => {
     const { classes } = useStyles();
 
     return (
-        <Box>
-            <Box className={classes.songContainer}>
+        <Box className={classes.songContainer}>
+            <Box className={classes.songInfoLine}>
                 <IconButton className={classes.playicon} aria-label="Play Arrow">
                     <PlayArrow fontSize="large" />
                 </IconButton>
