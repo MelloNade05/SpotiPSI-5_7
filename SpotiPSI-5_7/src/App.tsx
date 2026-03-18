@@ -1,6 +1,6 @@
 import './App.css'
 import Header from './components/header/Header'
-import Player from './components/player/Player'
+import Player from './components/player/player'
 import Sidebar from './components/sidebar/Sidebar'
 
 function App() {
