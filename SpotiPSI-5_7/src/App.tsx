@@ -7,7 +7,7 @@ function App() {
 
   return (
     <>
-      <Header />
+    <Header />
       <div id="main-section">
         <Sidebar />
       </div>

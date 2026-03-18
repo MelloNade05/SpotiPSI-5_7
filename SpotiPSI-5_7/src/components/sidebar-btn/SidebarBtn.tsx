@@ -2,7 +2,6 @@ import useStyles from './sidebarBtnStyles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';
-import { grey } from '@mui/material/colors';
 
 interface Props {
   btnTitle: string;
@@ -20,8 +19,8 @@ function SidebarBtn({ btnTitle }: Props) {
 
   return (
     <div className={classes.btn}>
-      <p className={classes.title}>{btnTitle}</p>
-      {Icon && <Icon sx={{ color: grey[500] }}/>}
+      <h4 className={classes.title}>{btnTitle}</h4>
+      {Icon && <Icon className={classes.icon}/>}
     </div>
   );
 }
