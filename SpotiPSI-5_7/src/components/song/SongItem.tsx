@@ -26,12 +26,11 @@ const SongItem: React.FC<Song> = ({name, artist }) => {
 
             <Box className={classes.songFuncs}>
                 <Stack direction="row" spacing={1}>
-                    <IconButton className={classes.iconButton} aria-label="Favourite">
-                        <Favourite />
-                    </IconButton>
-
                     <IconButton className={classes.iconButton} aria-label="Add">
                         <Add />
+                    </IconButton>
+                    <IconButton className={classes.iconButton} aria-label="Favourite">
+                        <Favourite />
                     </IconButton>
                 </Stack>
             </Box>

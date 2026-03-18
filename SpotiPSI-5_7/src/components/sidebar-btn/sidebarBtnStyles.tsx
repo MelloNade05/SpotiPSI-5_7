@@ -8,9 +8,13 @@ const useStyles = makeStyles()(() => ({
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'right',
+        cursor: 'pointer',
         '&:hover': {
             backgroundColor: '#2C2032'
         }
+    },
+    selected: {
+        backgroundColor: '#2C2032',
     },
     title: {
         color: 'white',
@@ -22,4 +26,4 @@ const useStyles = makeStyles()(() => ({
     }
 }));
 
-export default useStyles
+export default useStyles;

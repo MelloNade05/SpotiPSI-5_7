@@ -3,8 +3,7 @@ import { makeStyles } from 'tss-react/mui';
 const useStyles = makeStyles()(() => ({
   songContainer: {
     display: 'flex',
-    flexDirection: 'column',
-    justifyContent:'center',
+    flexDirection: 'row',
     alignItems:'end',
     direction:'ltr',
     height:'100%',
@@ -16,16 +15,12 @@ const useStyles = makeStyles()(() => ({
     backgroundColor: '#0f0f0f',
   },
   songInfoLine: {
-    display: 'flex',
-    justifyContent: 'start',
-    alignContent:'center',
-    alignItems:'center',
-    flexDirection:'row',
-    direction:'ltr',
-    height:'0.2rem',
-    width:'100%',
-    
-    marginBottom: '8px',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'left',
+  alignItems: 'center',
+  height: '50%',
+  width: '50%',
   },
   text: {
     color: 'white',
@@ -40,7 +35,8 @@ const useStyles = makeStyles()(() => ({
   songFuncs: {
     display: 'flex',
     flexDirection:'row',
-    justifyContent: 'flex-end',
+    marginLeft: '50%',
+    alignItems: 'center'
   },
 }));
 

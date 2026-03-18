@@ -1,22 +1,36 @@
-import { Box, List, ListItem } from '@mui/material';
 import SidebarBtn from '../sidebar-btn/SidebarBtn.tsx';
-import useStyles from './sidebarStyles.tsx'
-
+import useStyles from './sidebarStyles.tsx';
+import { Box, List, ListItem } from '@mui/material';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 function Sidebar() {
   const { classes } = useStyles();
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const buttons = [
+    { title: 'כל השירים', route: '/songs' },
+    { title: 'פלייליסטים', route: '/playlists' },
+    { title: 'מועדפים', route: '/favorites' },
+  ];
 
   return (
     <>
       <Box className={classes.sidebar}>
         <List>
-          <ListItem><SidebarBtn btnTitle='כל השירים' /></ListItem>
-          <ListItem><SidebarBtn btnTitle='פלייליסטים' /></ListItem>
-          <ListItem><SidebarBtn btnTitle='מועדפים' /></ListItem>
+          {buttons.map(({ title, route }) => (
+            <ListItem key={title}>
+              <SidebarBtn
+                btnTitle={title}
+                selected={location.pathname === route}
+                onClick={() => navigate(route)}
+              />
+            </ListItem>
+          ))}
         </List>
       </Box>
     </>
-  )
+  );
 }
 
-export default Sidebar
+export default Sidebar;
