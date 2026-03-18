@@ -1,13 +1,15 @@
+import { Box, Typography } from '@mui/material';
 import useStyles from './headerStyles.tsx'
 
 function Header() {
-    const { classes } = useStyles();
+  const { classes } = useStyles();
 
   return (
     <>
-      <div className={classes.header}>
-        <h1 className={classes.title}> SpotiPSI ♪ </h1>
-      </div>
+      <Box className={classes.header}>
+        <Typography variant="h4" className={classes.title} gutterBottom
+          sx={{ fontWeight: 'Bold' }}> ♪ SpotiPSI  </Typography>
+      </Box >
     </>
   )
 }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Song } from "./song/song";
+import type { Song } from './types';
 
-const ExampleFetch = () => {
+const FetchSongs = () => {
     const [songsList, setSongsList] = useState<Song[]>([]);
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>();
@@ -12,7 +12,7 @@ const ExampleFetch = () => {
         setIsLoading(true);
         try {
             // גישה לשרת
-            const response = await fetch("https://127.0.0.1:5001/api/songs");
+            const response = await fetch("http://127.0.0.1:5001/api/songs");
             const data = await response.json();
 
             // הוספת שירים לסטייט לאחר שהתקבלו מהשרת
@@ -38,22 +38,23 @@ const ExampleFetch = () => {
 
 
     return (
-        <div>
-            {/* הצגת טקסט טעינה במידה והמידע עדיין נטען */}
-            {isLoading && <p>Loading...</p>}
+      songsList
+        // <div>
+        //     {/* הצגת טקסט טעינה במידה והמידע עדיין נטען */}
+        //     {isLoading && <p>Loading...</p>}
 
-            {/* הצגת שגיאה במידה ויש שגיאה בגישה לשרת */}
-            {error && <p>{error}</p>}
+        //     {/* הצגת שגיאה במידה ויש שגיאה בגישה לשרת */}
+        //     {error && <p>{error}</p>}
 
-            {/* הצגת השירים במידה והטעינה הסתיימה ואין שגיאה */}
-            {!isLoading && !error && songsList.map((song, index) => (
-                <div key={index}>
-                    <h2>{song.name}</h2>
-                </div>
-            ))}
-        </div>
+        //     {/* הצגת השירים במידה והטעינה הסתיימה ואין שגיאה */}
+        //     {!isLoading && !error && songsList.map((song, index) => (
+        //         <div key={index}>
+        //             <h2>{song.name}</h2>
+        //         </div>
+        //     ))}
+        // </div>
     );
 
 }
 
-export default ExampleFetch;
+export default FetchSongs;
