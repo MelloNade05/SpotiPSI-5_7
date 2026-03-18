@@ -2,7 +2,7 @@ import { makeStyles } from 'tss-react/mui'
 
 const useStyles = makeStyles()(() => ({
     sidebar: {
-        height: '825px',
+        height: '820px',
         width: '15%',
         float: 'right',
         marign: '0',

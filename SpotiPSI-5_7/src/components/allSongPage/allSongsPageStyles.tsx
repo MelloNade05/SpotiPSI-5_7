@@ -5,13 +5,12 @@ const useStyles = makeStyles()(() => ({
   pageContainer: {
     display: 'flex',
     flexDirection: 'column',
-    direction:'rtl',
+    direction: 'rtl',
     padding: '12px',
-    margin:'5px',
-    backgroundColor: '#0a0a0a',
   },
   header: {
-    color:'white'
+    color: 'white',
+    marginRight: '2%'
   },
 }));
 
