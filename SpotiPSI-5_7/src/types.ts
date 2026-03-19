@@ -1,5 +1,11 @@
 export interface Song {
-    id: number;
+    id: string;
     name: string;
     artist: string;
+}
+
+export interface Playlist {
+    id: string;
+    name: string;
+    songIds: string[];
 }

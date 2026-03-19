@@ -1,4 +1,4 @@
-import useStyles from './sidebarBtnStyles';
+import useStyles from './sidebarOptionStyles';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import HomeIcon from '@mui/icons-material/Home';
 import LibraryMusicIcon from '@mui/icons-material/LibraryMusic';

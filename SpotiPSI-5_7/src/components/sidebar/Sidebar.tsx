@@ -1,4 +1,4 @@
-import SidebarBtn from '../sidebar-btn/SidebarBtn.tsx';
+import SidebarOption from './sidebar-option/SidebarOption.tsx';
 import useStyles from './sidebarStyles.tsx';
 import { Box, List, ListItem } from '@mui/material';
 import { useLocation, useNavigate } from 'react-router-dom';
@@ -20,7 +20,7 @@ function Sidebar() {
         <List>
           {buttons.map(({ title, route }) => (
             <ListItem key={title}>
-              <SidebarBtn
+              <SidebarOption
                 btnTitle={title}
                 selected={location.pathname === route}
                 onClick={() => navigate(route)}
