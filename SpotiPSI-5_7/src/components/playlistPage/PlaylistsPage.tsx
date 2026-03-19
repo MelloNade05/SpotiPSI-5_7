@@ -13,7 +13,7 @@ function PlaylistsPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const fetchedPlaylists = UseFetchPlaylists('playlist');
+  const fetchedPlaylists = UseFetchPlaylists();
   const [playlistsList, setPlaylists] = useState<PlaylistType[]>([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 

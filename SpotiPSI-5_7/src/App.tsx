@@ -21,7 +21,7 @@ function App() {
   // had problems using state because fetch already has a state and we cant do hook inside hook
   const songsList = UseFetchSongs(activePage);
   const favSongsIds = UseFetchFavs(activePage);
-  const playlistsList = FetchPlaylists('playlist')
+  const playlistsList = FetchPlaylists()
   useEffect(() => {
     console.log(`Page changed to ${activePage}`);
   }, [activePage]);
