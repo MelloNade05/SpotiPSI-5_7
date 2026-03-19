@@ -1,3 +1,4 @@
+import React, { useEffect, useState } from 'react';
 import Stack from '@mui/material/Stack';
 import IconButton from '@mui/material/IconButton';
 import PlayArrow from '@mui/icons-material/PlayArrow';
@@ -6,13 +7,17 @@ import useStyles from './SongItemStyles';
 import type { Song } from '../../types';
 import { Typography, Box, Checkbox } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
+import { toggleFav } from '../../api/toggleFavApi';
 import FetchPlaylists from '../../api/fetchPlaylists';
 import { useState, useRef, useEffect } from 'react';
 import { addToPlaylists } from '../../api/postPlaylists.ts';
 
 
+interface SongItemProps extends Song {
+  isFavorite: boolean;
+}
 
-const SongItem: React.FC<Song> = ({ id: songId, name, artist }) => {
+const SongItem: React.FC<SongItemProps> = ({ id, id: songId, name, artist, isFavorite  }) => {
     const { classes } = useStyles();
     const playlistsList = FetchPlaylists();
     const [isOpen, setIsOpen] = useState(false);
@@ -33,6 +38,16 @@ const SongItem: React.FC<Song> = ({ id: songId, name, artist }) => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, []);
+    const [favoriteValue, setFavoriteValue] = useState(isFavorite);
+
+
+  const changeFav = async () => {
+    const response = await toggleFav(id, !favoriteValue);
+    if (response) {
+      setFavoriteValue(prev => !prev);
+    }
+  };
+
 
     return (
         <Box className={classes.songContainer}>
@@ -69,11 +84,12 @@ const SongItem: React.FC<Song> = ({ id: songId, name, artist }) => {
                             </Box>
                         )}
                     </Box>
+
                     <Checkbox
                         className={classes.favoriteIcon}
                         icon={<FavoriteBorder />}
                         checkedIcon={<Favorite />}
-                    />
+                    onChange={changeFav} checked={favoriteValue} />
                 </Stack>
             </Box>
         </Box>

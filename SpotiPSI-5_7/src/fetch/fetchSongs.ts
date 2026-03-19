@@ -37,29 +37,7 @@ const FetchSongs = () => {
         fetchSongs();
     }, []);
 
-<<<<<<<< HEAD:SpotiPSI-5_7/src/api/fetchSongs.tsx
-    
-    return (
-        songsList
-        // <div>
-        //     {/* הצגת טקסט טעינה במידה והמידע עדיין נטען */}
-        //     {isLoading && <p>Loading...</p>}
-
-        //     {/* הצגת שגיאה במידה ויש שגיאה בגישה לשרת */}
-        //     {error && <p>{error}</p>}
-
-        //     {/* הצגת השירים במידה והטעינה הסתיימה ואין שגיאה */}
-        //     {!isLoading && !error && songsList.map((song, index) => (
-        //         <div key={index}>
-        //             <h2>{song.name}</h2>
-        //         </div>
-        //     ))}
-        // </div>
-    );
-========
-
     return songsList;
->>>>>>>> 4fa2849 (A mostly working favorites page. yet theres stuff to fix):SpotiPSI-5_7/src/fetch/fetchSongs.ts
 
 }
 
