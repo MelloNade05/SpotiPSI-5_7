@@ -6,7 +6,12 @@ export interface Song {
 }
 
 export interface PlaylistType {
-    id: string;
+    playlistId: string;
     name: string;
     songIds: string[];
+}
+
+export interface SongTableProps{
+    songsList:Song[]
+    favSongsId:string[]
 }

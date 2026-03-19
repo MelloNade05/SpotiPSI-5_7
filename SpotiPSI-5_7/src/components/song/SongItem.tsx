@@ -1,25 +1,24 @@
-import React, { useEffect, useState } from 'react';
-import Stack from '@mui/material/Stack';
-import IconButton from '@mui/material/IconButton';
-import PlayArrow from '@mui/icons-material/PlayArrow';
-import Add from '@mui/icons-material/Add';
-import useStyles from './SongItemStyles';
-import type { Song } from '../../types';
-import { Typography, Box, Checkbox } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
-import { toggleFav } from '../../api/toggleFavApi';
-import FetchPlaylists from '../../api/fetchPlaylists';
-import { useState, useRef, useEffect } from 'react';
+import Add from '@mui/icons-material/Add';
+import PlayArrow from '@mui/icons-material/PlayArrow';
+import { Box, Checkbox, Typography } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import Stack from '@mui/material/Stack';
+import React, { useEffect, useRef, useState } from 'react';
+import UseFetchPlaylists from '../../api/fetchPlaylists';
 import { addToPlaylists } from '../../api/postPlaylists.ts';
+import { toggleFav } from '../../api/toggleFavApi';
+import type { Song } from '../../types';
+import useStyles from './SongItemStyles';
 
 
 interface SongItemProps extends Song {
-  isFavorite: boolean;
+    isFavorite: boolean;
 }
 
-const SongItem: React.FC<SongItemProps> = ({ id, id: songId, name, artist, isFavorite  }) => {
+const SongItem: React.FC<SongItemProps> = ({ id, name, artist, isFavorite }) => {
     const { classes } = useStyles();
-    const playlistsList = FetchPlaylists();
+    const playlistsList = UseFetchPlaylists('playlist');
     const [isOpen, setIsOpen] = useState(false);
     const dropdownRef = useRef<HTMLDivElement>(null);
 
@@ -40,13 +39,12 @@ const SongItem: React.FC<SongItemProps> = ({ id, id: songId, name, artist, isFav
     }, []);
     const [favoriteValue, setFavoriteValue] = useState(isFavorite);
 
-
-  const changeFav = async () => {
-    const response = await toggleFav(id, !favoriteValue);
-    if (response) {
-      setFavoriteValue(prev => !prev);
-    }
-  };
+    const changeFav = async () => {
+        const response = await toggleFav(id, !favoriteValue);
+        if (response) {
+            setFavoriteValue(prev => !prev);
+        }
+    };
 
 
     return (
@@ -72,10 +70,10 @@ const SongItem: React.FC<SongItemProps> = ({ id, id: songId, name, artist, isFav
 
                         {isOpen && (
                             <Box className={classes.dropdown}>
-                                {playlistsList.map(({ id, name }) => (
-                                    <Box className={classes.playlistItem} onClick={async () => {
+                                {playlistsList.map(({ playlistId, name} , index) => (
+                                    <Box className={classes.playlistItem} key={index} onClick={async () => {
                                         setIsOpen(false);
-                                        const success = await addToPlaylists(id, songId);
+                                        const success = await addToPlaylists(playlistId, id);
                                         if (success) {
                                             window.location.reload();
                                         }
@@ -89,7 +87,7 @@ const SongItem: React.FC<SongItemProps> = ({ id, id: songId, name, artist, isFav
                         className={classes.favoriteIcon}
                         icon={<FavoriteBorder />}
                         checkedIcon={<Favorite />}
-                    onChange={changeFav} checked={favoriteValue} />
+                        onChange={changeFav} checked={favoriteValue} />
                 </Stack>
             </Box>
         </Box>

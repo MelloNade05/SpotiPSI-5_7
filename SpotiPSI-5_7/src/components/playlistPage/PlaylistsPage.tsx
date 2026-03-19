@@ -1,7 +1,7 @@
 import useStyles from './playlistsPageStyles.tsx';
 import { Box, Button, List, ListItem, Typography } from '@mui/material';
 import { useNavigate, useLocation } from 'react-router-dom';
-import FetchPlaylists from '../../api/fetchPlaylists.tsx';
+import UseFetchPlaylists from '../../api/fetchPlaylists.tsx';
 import type { PlaylistType } from '../../types.ts';
 import { useEffect, useState } from 'react';
 import Popup from '../popup/Popup.tsx';
@@ -13,7 +13,7 @@ function PlaylistsPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const fetchedPlaylists = FetchPlaylists();
+  const fetchedPlaylists = UseFetchPlaylists('playlist');
   const [playlistsList, setPlaylists] = useState<PlaylistType[]>([]);
   const [isPopupOpen, setIsPopupOpen] = useState(false);
 
@@ -26,7 +26,7 @@ function PlaylistsPage() {
 
   const handleSubmit = (name: string) => {
     const newPlaylist: PlaylistType = {
-      id: `${playlistsList.length + 1}`,
+      playlistId: `${playlistsList.length + 1}`,
       name,
       songIds: []
     };
@@ -46,13 +46,13 @@ function PlaylistsPage() {
 
       <Box className={classes.playlists}>
         <List>
-          {playlistsList.map(({ id, name, songIds }) => (
-            <ListItem key={id}>
+          {playlistsList.map(({ playlistId, name, songIds }, index) => (
+            <ListItem key={index}>
               <PlaylistItem
                 name={name}
                 songsAmount={songIds.length}
-                selected={location.pathname === `/playlists/${id}`}
-                onClick={() => navigate(`/playlists/${id}`)}
+                selected={location.pathname === `/playlists/${playlistId}`}
+                onClick={() => navigate(`/playlists/${playlistId}`)}
               />
             </ListItem>
           ))}

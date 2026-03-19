@@ -1,23 +1,18 @@
-import React from 'react';
-import useStyles from './allSongsPageStyles';
 import { Box, Typography } from '@mui/material';
-import SongsTable from '../songTable/SongsTable';
-import type { Song } from '../../types';
+import React from 'react';
+import type { SongTableProps } from '../../types';
+import SongsTable from '../songsTable/SongsTable';
+import useStyles from './allSongsPageStyles';
 
-interface AllSongsPageProps {
-    songs: Song[];
-    favSongsIds:string[];
 
-}
-
-const AllSongsPage: React.FC<AllSongsPageProps> = ({ songs , favSongsIds}) => {
+const AllSongsPage: React.FC<SongTableProps> = ({ songsList, favSongsId }) => {
     const { classes } = useStyles();
     return (
         <Box className={classes.pageContainer}>
             <Typography variant="h4" className={classes.header} gutterBottom
                 sx={{ fontWeight: 'Bold' }}> כל השירים
             </Typography>
-            <SongsTable songList={songs} favSongsIds={favSongsIds}/>
+            <SongsTable songsList={songsList} favSongsId={favSongsId} />
         </Box>
     );
 };
