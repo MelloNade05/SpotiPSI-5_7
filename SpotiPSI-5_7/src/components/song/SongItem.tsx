@@ -5,7 +5,7 @@ import PlayArrow from '@mui/icons-material/PlayArrow';
 import Add from '@mui/icons-material/Add';
 import useStyles from './SongItemStyles';
 import type { Song } from '../../types';
-import { Typography, Divider, backdropClasses, Box } from '@mui/material';
+import { Typography, Box } from '@mui/material';
 import { Checkbox } from '@mui/material';
 import { Favorite, FavoriteBorder } from '@mui/icons-material';
 

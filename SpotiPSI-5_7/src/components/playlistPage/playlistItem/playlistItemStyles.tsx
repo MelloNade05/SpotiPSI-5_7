@@ -2,19 +2,15 @@ import { makeStyles } from "tss-react/mui";
 
 const useStyles = makeStyles()(() => ({
   container: {
-    width: '100%',
+    width: '110%',
+    marginLeft: '1%',
     padding: '12px 16px',
-    borderRadius: '8px',
     cursor: 'pointer',
-
     display: 'flex',
     flexDirection: 'column',
-    alignItems: 'flex-end', // RTL alignment
-
-    transition: 'background-color 0.2s ease',
-
+    borderBottom: '1px solid #313131',
     '&:hover': {
-      backgroundColor: 'rgba(255,255,255,0.05)',
+      backgroundColor: '#ffffff0d',
     },
   },
 
@@ -24,7 +20,6 @@ const useStyles = makeStyles()(() => ({
 
   name: {
     color: '#fff',
-    fontWeight: 500,
     fontSize: '16px',
   },
 

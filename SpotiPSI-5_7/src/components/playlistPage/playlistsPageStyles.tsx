@@ -2,22 +2,25 @@ import { makeStyles } from 'tss-react/mui'
 
 const useStyles = makeStyles()(() => ({
     playlists: {
-        height: '100%',
-        width: '100%',
-        marign: '0',
+        minHeight: '100%',
+        boxSizing: 'border-box'
     },
     top: {
-        width: '83%',
-        height: '100px',
+        width: '100%',
+        height: '100%',
         display: 'flex',
+        justifyContent: 'space-between',
+        alignItems: 'center',
         flexDirection: 'row',
-        border: '1px solid red',
     },
     header: {
         color: 'white',
-        marginRight: '2%'
+        marginRight: '1%',
+        marginTop: '10px'
     },
     btn: {
+        marginTop: '10px',
+        height: '5%',
         color: '#825193',
         borderColor: '#825193',
         borderRadius: '50px',
@@ -26,6 +29,9 @@ const useStyles = makeStyles()(() => ({
             backgroundColor: 'rgba(130,81,147,0.1)',
             borderColor: '#825193',
         }
+    },
+    playlist: {
+
     }
 }));
 

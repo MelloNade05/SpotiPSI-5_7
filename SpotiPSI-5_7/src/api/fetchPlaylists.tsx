@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import type { PlaylistType } from './types';
+import type { PlaylistType } from '../types';
 
 const FetchPlaylists = () => {
     const [PlaylistsList, setPlaylistsList] = useState<PlaylistType[]>([]);
@@ -13,6 +13,7 @@ const FetchPlaylists = () => {
             const data = await response.json();
 
             setPlaylistsList(data);
+            console.log(data);
 
         } catch (error) {
             setError("Something went wrong");
