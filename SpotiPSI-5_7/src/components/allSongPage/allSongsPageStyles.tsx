@@ -1,0 +1,15 @@
+import { makeStyles } from 'tss-react/mui';
+
+const useStyles = makeStyles()(() => ({
+  pageContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    direction: 'rtl',
+    padding: '12px'
+  },
+  header: {
+    color: 'white',
+  },
+}));
+
+export default useStyles;
