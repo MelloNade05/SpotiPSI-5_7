@@ -33,7 +33,6 @@ function PlaylistsPage() {
     updatePlaylists(newPlaylist);
     setPlaylists((prev) => [...prev, newPlaylist]);
     setIsPopupOpen(false);
-    console.log(playlistsList);
   };
 
   return (

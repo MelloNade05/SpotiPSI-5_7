@@ -13,7 +13,6 @@ const FetchPlaylists = () => {
             const data = await response.json();
 
             setPlaylistsList(data);
-            console.log(data);
 
         } catch (error) {
             setError("Something went wrong");

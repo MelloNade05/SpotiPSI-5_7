@@ -15,7 +15,6 @@ function Playlist({ name, songs: songIds, allSongs }: PlaylistProps) {
     const { classes } = useStyles();
     const navigate = useNavigate();
 
-    // Map playlist song IDs to full song objects
     const playlistSongs = allSongs.filter(song => songIds.includes(song.id));
 
     return (
