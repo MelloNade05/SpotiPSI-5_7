@@ -3,6 +3,7 @@ import type { Song } from './types';
 
 const FetchSongs = () => {
     const [songsList, setSongsList] = useState<Song[]>([]);
+
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState<string>();
 
@@ -12,11 +13,11 @@ const FetchSongs = () => {
         setIsLoading(true);
         try {
             // גישה לשרת
-            const response = await fetch("http://127.0.0.1:5001/api/songs");
+            const response = await fetch(`http://127.0.0.1:5001/api/songs`);
             const data = await response.json();
 
-            // הוספת שירים לסטייט לאחר שהתקבלו מהשרת
             setSongsList(data);
+
         } catch (error) {
             // הגדרת שגיאה בגישה לשרת
             setError("Something went wrong");
@@ -36,9 +37,9 @@ const FetchSongs = () => {
         fetchSongs();
     }, []);
 
-
+    
     return (
-      songsList
+        songsList
         // <div>
         //     {/* הצגת טקסט טעינה במידה והמידע עדיין נטען */}
         //     {isLoading && <p>Loading...</p>}

@@ -1,19 +1,13 @@
 import './App.css';
 import AllSongsPage from './components/allSongPage/AllSongsPage.tsx';
 import Header from './components/header/Header';
-import Player from './components/player/player';
+import Player from './components/player/Player';
 import Sidebar from './components/sidebar/Sidebar';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Box } from '@mui/material'
 import FetchSongs from './fetchSongs.tsx'
+import PlaylistsPage from './components/playlistPage/PlaylistsPage.tsx';
 
-function PlaylistsPage() {
-  return (
-    <div>
-
-    </div>
-  );
-}
 
 function FavoritesPage() {
   return (

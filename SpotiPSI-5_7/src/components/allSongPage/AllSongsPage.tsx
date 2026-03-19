@@ -4,7 +4,7 @@ import useStyles from './allSongsPageStyles';
 import { Box, Typography } from '@mui/material';
 
 interface SongInfo {
-    id: number
+    id: string;
     name: string;
     artist: string;
 }
